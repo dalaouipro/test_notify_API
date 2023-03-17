@@ -24,14 +24,14 @@ public class NotifController {
         return notifService.findById(id).orElse(null);
     }
 
-    @PutMapping("/createNotif")
+    @PostMapping("/createNotif")
     public Notif createNotif( @RequestBody Notif notif) {
         Notif notifNew = notif;
         notifService.save(notifNew);
         return notifNew;
     }
 
-    @PostMapping("/updateNotif/{id}")
+    @PutMapping("/updateNotif/{id}")
     public Notif updateNotif(@PathVariable int id, @RequestBody Notif notif) {
         Notif notifNew = findNotif(id);
         notifNew.setValue(notif.getValue());
